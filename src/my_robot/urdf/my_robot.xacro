@@ -1,6 +1,16 @@
 <?xml version="1.0"?>
 <robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 	<include filename="$(find my_robot)/urdf/my_robot.gazebo" />
+	<gazebo reference="chassis">
+		<material>Gazebo/FlatBlack</material>
+	</gazebo>
+	<gazebo reference="right_wheel">
+		<material>Gazebo/Orange</material>
+	</gazebo>
+	<gazebo reference="left_wheel">
+		<material>Gazebo/Orange</material>
+	</gazebo>
+
 	<link name="robot_footprint">
 	</link>
 	<joint name="robot_footprint_joint" type="fixed">
@@ -20,13 +30,13 @@
 		<collision name="collision">
 			<origin xyz="0 0 0" rpy=" 0 0 0" />
 			<geometry>
-				<box size=".4 .2 .1" />
+				<box size=".4 .24 .13" />
 			</geometry>
 		</collision>
 		<visual name="chassis_visual">
 			<origin xyz="0 0 0" rpy=" 0 0 0" />
 			<geometry>
-				<box size=".4 .2 .1" />
+				<box size=".4 .24 .13" />
 			</geometry>
 		</visual>
 		<collision name="back_caster_collision">
@@ -71,6 +81,10 @@
 			<geometry>
 				<cylinder radius="0.1" length="0.05" />
 			</geometry>
+			<material name="">
+				<color rgba="0.75294 0.75294 0.75294 1"/>
+			  </material>
+		
 		</visual>
 	</link>
 	<link name="right_wheel">
@@ -90,6 +104,10 @@
 			<geometry>
 				<cylinder radius="0.1" length="0.05" />
 			</geometry>
+			<material name="">
+				<color rgba="0.75294 0.75294 0.75294 1"/>
+			</material>
+		
 		</visual>
 	</link>
 	<joint type="continuous" name="left_wheel_hinge">
@@ -113,13 +131,13 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<box size="0.05, 0.05, 0.05" />
+				<box size="0.05 0.05 0.05" />
 			</geometry>
 		</collision>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<box size="0.05, 0.05, 0.05" />
+				<box size="0.05 0.05 0.05" />
 			</geometry>
 			<material name="red" />
 		</visual>
