@@ -11,8 +11,6 @@ ros::Publisher motor_command_publisher;
 // After publishing the requested velocities, a message feedback should be returned with the requested wheel velocities
 bool handle_drive_request(ball_chaser::DriveToTarget::Request& req, ball_chaser::DriveToTarget::Response& res)
 {
-  ROS_INFO("drive_bot.cpp API call - linear_x: %1.2f, angular_z: %1.2f", req.linear_x, req.angular_z);
-
   geometry_msgs::Twist motor_command;
 
   motor_command.linear.x = req.linear_x;
